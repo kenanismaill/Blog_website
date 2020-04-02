@@ -36,7 +36,7 @@ class Category(models.Model):
 class Blog(models.Model):
     STATUS = (
         ('true', 'True'),
-        ('false', 'False')
+        ('false', 'False ')
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
     author = models.CharField(max_length=50)
