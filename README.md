@@ -1,1 +1,1 @@
-"# khara" 
+"my blog website using Django " 
