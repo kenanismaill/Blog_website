@@ -19,7 +19,7 @@ class Category(models.Model):
     status = models.CharField(max_length=10, choices=STATUS)
     slug = models.SlugField()
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
-    content =  RichTextUploadingField()
+    content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
