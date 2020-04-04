@@ -19,9 +19,15 @@ from django.contrib import admin
 from django.contrib.staticfiles.urls import staticfiles_urlpatterns
 from django.urls import path, include
 import os
+
+from home import views
+
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 urlpatterns = [
     path('', include('home.urls')),
+    path('aboutus', views.aboutus, name='aboutus'),
+    path('contactus', views.contactus, name='contactus'),
+    path('referance', views.references, name='referance'),
     path('home/', include('home.urls')),
     path('blog/', include('blog.urls')),
     path('admin/', admin.site.urls),

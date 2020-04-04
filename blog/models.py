@@ -7,7 +7,7 @@ from ckeditor_uploader.fields import RichTextUploadingField
 
 
 class Category(models.Model):
-    STATUS = (
+    STATUS =(
         ('true', 'True'),
         ('false', 'False')
     )

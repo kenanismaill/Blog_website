@@ -1,0 +1,27 @@
+{% extends 'homebase.html' %}
+
+{% block title%} About{{setting.company}} {% endblock%}
+{% block keywords%} {{setting.keywords}}  {% endblock%}
+{% block description%} {{setting.description} {% endblock%}
+{% block head%}<link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url}}'/> {%endblock%}
+{% block header%} {% include 'header.html'%}{% endblock%}
+{% block sidebar%} {% include 'sidebar.html'%}{% endblock%}
+{% block slider%} {% include 'slider.html'%}{% endblock%}
+{% block content%}
+<div class="clearfix"> </div>
+			    <div class="b-bottom">
+			      <h5 class="top"><a href="single.html">What turn out consetetur sadipscing elit</a></h5>
+			      <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+				</div>
+			 </div>
+ <div class="top-news">
+    <div class="top-inner">
+        {{setting.about_us|safe}}
+	 </div>
+ </div>
+
+</div>
+
+ {% endblock%}
+{% block banner%} {% include 'banner.html'%}{% endblock%}
+{% block footer%} {% include 'footer.html'%}{% endblock%}
