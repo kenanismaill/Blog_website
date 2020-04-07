@@ -1,6 +1,8 @@
+from django.core.checks import messages
+from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from home.models import Setting
+from home.models import Setting, contactusform
 
 
 def index(request):
@@ -16,8 +18,14 @@ def aboutus(request):
 
 
 def contactus(request):
+    form = contactusform(request.POST or None, request.FILES or None)
+    if form.is_valid():
+        form.save()
+        messages.Info(request, 'Form submission successful')
+        return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
-    context = {'setting': setting}
+    form = contactusform()
+    context = {'setting': setting, 'form': form}
     return render(request, 'contactus.html', context)
 
 

@@ -14,11 +14,32 @@
 			      <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 				</div>
 			 </div>
- <div class="top-news">
-    <div class="top-inner">
-        {{setting.contact|safe}}
-	 </div>
- </div>
+<br>
+
+	<div class="col-4">
+		<div class="row-md-5 ">
+			<div class="top-news">
+				<div class="top-inner">
+					{{setting.contact|safe}}
+				 </div>
+			</div>
+		</div>
+
+			{% if messages %}
+				<ul class="messages">
+					{% for message in messages %}
+						<li  {% if message.tags %} class=" {{ message.tags }} " {% endif %}> {{ message }} </li>
+					{% endfor %}
+				</ul>
+		{% endif %}
+		<div class="row-md-8">
+			<form action="" method="post">
+				{% csrf_token %}
+				{{ form.as_p}}
+				<br><input type="submit" value="Send MSG">
+			</form>
+		</div>
+	</div>
 
 </div>
 
