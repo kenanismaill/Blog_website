@@ -6,25 +6,13 @@
 			<div class="banner">
                  <div  class="callbacks_container">
 					<ul class="rslides" id="slider4">
-					       <li>
-							  <img src="{% static 'images/1.jpg'%}" class="img-responsive" alt="" />
-
-							</li>
+						{% for rs in sliderdata %}
 							<li>
-								 <img src="{% static 'images/2.jpg'%}" class="img-responsive" alt="" />
+								  <a href="/blog/{{rs.id}}/{{rs.slug}}"><img src="{{ rs.image.url}}" class="img-responsive" alt="" /></a>
+									<h2>{{ rs.description}}</h2>
+								</li>
 
-
-							</li>
-							<li>
-							 <img src="{% static 'images/3.jpg'%}" class="img-responsive" alt="" />
-
-
-							</li>
-							<li>
-							 <img src="{% static 'images/3.jpg'%}" class="img-responsive" alt="" />
-
-
-							</li>
+						{% endfor %}
 						</ul>
 					</div>
 					<!--banner-->

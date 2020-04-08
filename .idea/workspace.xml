@@ -2,14 +2,15 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e92dd7-68ef-4290-9c5e-26b2c693cd12" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/dictionaries/kenan.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dictionaries/kenan.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/admin.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/models.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/contactus.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/contactus.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/home/templates/content.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/content.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/templets/web/images/1.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templets/web/images/2.jpg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/templets/web/images/3.jpg" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -108,20 +109,28 @@
       <option name="project" value="LOCAL" />
       <updated>1585969226771</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="contact form submitted to admin">
+      <created>1586230936547</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1586230936547</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="changed title in home base" />
     <MESSAGE value="insert Ckeditor to detail Model part" />
     <MESSAGE value="Contact _ about and refernces pages inserted also make&#10;change in home base since banner page added and fixed  it" />
-    <option name="LAST_COMMIT_MESSAGE" value="Contact _ about and refernces pages inserted also make&#10;change in home base since banner page added and fixed  it" />
+    <MESSAGE value="contact form submitted to admin" />
+    <option name="LAST_COMMIT_MESSAGE" value="contact form submitted to admin" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="361" y="71" key="#Inspections" timestamp="1586051218721">
+    <state x="361" y="71" key="#Inspections" timestamp="1586338220914">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="71" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1586051218721" />
+    <state x="361" y="71" key="#Inspections/0.0.1536.824@0.0.1536.824" timestamp="1586338220914" />
     <state x="361" y="71" width="814" height="728" key="#Intentions" timestamp="1582905903612">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -130,10 +139,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="223" y="67" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1536.824@0.0.1536.824" timestamp="1585716654433" />
-    <state x="424" y="7" key="CommitChangelistDialog2" timestamp="1585969224177">
+    <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1586342503929">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="7" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1585969224177" />
+    <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1586342503929" />
+    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1586230933815">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586230933815" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1585806752228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -150,14 +163,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585719042856" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1585969243479">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586230959866">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1585969243479" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586225806840">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586230959866" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586336644982">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586225806840" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586336644982" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585806839588">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

@@ -63,8 +63,8 @@ class contactusform(forms.ModelForm):
         model = ContactFormMessage
         fields = ['name', 'email', 'subject', 'message']
         widgets = {
-            'name': TextInput(attrs={'class': 'input', 'placeholder': 'Name & SurName'}),
-            'email': TextInput(attrs={'class': 'input', 'placeholder': 'Email'}),
-            'subject': TextInput(attrs={'class': 'input', 'placeholder': 'Name & SurName'}),
-            'message': Textarea(attrs={'class': 'input', 'placeholder': 'Name & SurName', 'rows': '10'})
+            'name': forms.TextInput(attrs={'class': 'text', 'placeholder': 'Name & SurName'}),
+            'email': forms.TextInput(attrs={'class': 'text', 'placeholder': 'Email'}),
+            'subject': forms.TextInput(attrs={'class': 'text', 'placeholder': 'Subject'}),
+            'message': forms.Textarea(attrs={'class': 'text', 'placeholder': 'Name & SurName', 'rows': '10'})
         }
