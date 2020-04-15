@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'ckeditor',
     'ckeditor_uploader',
+    'mptt',
 ]
 
 MIDDLEWARE = [
@@ -143,5 +144,5 @@ CKEDITOR_CONFIGS = {
         'toolbar': None,
     },
 }
-
+MPTT_ADMIN_LEVEL_INDENT = 20
 ###################################

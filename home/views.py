@@ -2,15 +2,18 @@ from django.core.checks import messages
 from django.http import HttpResponseRedirect
 from django.shortcuts import render
 
-from blog.models import Blog
+from blog.models import Blog, Category
 from home.models import Setting, contactusform
 
 
 def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()
+    category = Category.objects.all()
+
     context = {'setting': setting, 'page': 'home',
-               'sliderdata': sliderdata}
+               'sliderdata': sliderdata,
+               'category': category}
     return render(request, 'index.html', context)
 
 
