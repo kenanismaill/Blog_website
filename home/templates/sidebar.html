@@ -19,9 +19,9 @@
                                     {% recursetree category %}
 
                                          <div>
-                                             <a href="/category/{{node.slug}}"> <span> {{ node.title }}</span></a>
+                                             <a href="/category/{{node.id}}/{{node.slug}}"> <span> {{ node.title }}</span></a>
                                              <div>
-                                                 {{ children }}
+                                              <h4 style="">{{ children }}</h4>
                                              </div>
                                           </div>
                                     {% endrecursetree %}

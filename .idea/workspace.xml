@@ -2,9 +2,12 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="23e92dd7-68ef-4290-9c5e-26b2c693cd12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/templates/blogs.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/homebase.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/homebase.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/slider.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/slider.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
@@ -126,7 +129,14 @@
       <option name="project" value="LOCAL" />
       <updated>1586960608957</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="EDIT&#10;Contact,About Us and refernces  pages werent working beacause of &#10;views.py function category.object.all() wasnt not add">
+      <created>1586990239674</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1586990239674</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -136,7 +146,8 @@
     <MESSAGE value="contact form submitted to admin" />
     <MESSAGE value="add slider to Home Page" />
     <MESSAGE value="Category and sub Category in Admin  Panel  show Categories in Home page" />
-    <option name="LAST_COMMIT_MESSAGE" value="Category and sub Category in Admin  Panel  show Categories in Home page" />
+    <MESSAGE value="EDIT&#10;Contact,About Us and refernces  pages werent working beacause of &#10;views.py function category.object.all() wasnt not add" />
+    <option name="LAST_COMMIT_MESSAGE" value="EDIT&#10;Contact,About Us and refernces  pages werent working beacause of &#10;views.py function category.object.all() wasnt not add" />
   </component>
   <component name="WindowStateProjectService">
     <state x="361" y="71" key="#Inspections" timestamp="1586338220914">
@@ -155,10 +166,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1586533696610" />
-    <state x="424" y="0" key="CommitChangelistDialog2" timestamp="1586960605154">
+    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2" timestamp="1586990238404">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="0" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586960605154" />
+    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1586990238404" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1585806752228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -175,21 +186,21 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585719042856" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586960621333">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1586990247353">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586960621333" />
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1586958753490">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1586990247353" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1588726549358">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1586958753490" />
+    <state x="465" y="236" key="com.intellij.ide.util.TipDialog/0.0.1536.824@0.0.1536.824" timestamp="1588726549358" />
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1585806839588">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="578" y="329" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.1536.824@0.0.1536.824" timestamp="1585806839588" />
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1586227195498">
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup" timestamp="1588113897519">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1586227195498" />
+    <state x="431" y="145" width="672" height="678" key="search.everywhere.popup/0.0.1536.824@0.0.1536.824" timestamp="1588113897519" />
   </component>
 </project>

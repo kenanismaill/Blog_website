@@ -8,7 +8,7 @@ from home.models import Setting, contactusform
 
 def index(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Blog.objects.all()
+    sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
 
     context = {'setting': setting, 'page': 'home',
@@ -19,9 +19,11 @@ def index(request):
 
 def aboutus(request):
     setting = Setting.objects.get(pk=1)
+    sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
     context = {'setting': setting,
-               'category': category}
+               'category': category,
+               'sliderdata': sliderdata,}
     return render(request, 'aboutus.html', context)
 
 
@@ -32,16 +34,32 @@ def contactus(request):
         messages.Info(request, 'Form submission successful')
         return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
+    sliderdata = Blog.objects.all()[:3]
     form = contactusform()
     category = Category.objects.all()
     context = {'setting': setting, 'form': form,
-               'category': category}
+               'category': category,
+               'sliderdata': sliderdata,}
     return render(request, 'contactus.html', context)
 
 
 def references(request):
     setting = Setting.objects.get(pk=1)
+    sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
     context = {'setting': setting,
-               'category': category}
+               'category': category,
+               'sliderdata': sliderdata,}
     return render(request, 'referances.html', context)
+
+
+def category_blogs(request,id,slug):
+    category = Category.objects.all()[:3]
+    categorydata = Category.objects.get(pk=id)
+    sliderdata = Blog.objects.all()
+    blogs = Blog.objects.filter(category_id=id)
+    context = {'blogs': blogs,
+               'category': category,
+               'sliderdata': sliderdata,
+               'categorydata': categorydata}
+    return render(request, 'blogs.html', context)
