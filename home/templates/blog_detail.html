@@ -12,11 +12,11 @@
 <div class="col-md-9 main">
     <!--banner-section-->
     <div class="banner-section">
-        <h3 class="top"><a href="/category/{{blog.category_id}}/{{blog.category.slug}}"> CATEGORY_{{ blog.category }}</a></h3>
+        <h3 class="top"><a href="/category/{{blog.category_id}}/{{blog.category.slug}}" style="text-decoration: underline"> CATEGORY_{{ blog.category }}</a></h3>
         <HR>
 
         <div class="single">
-            <img src="{{ blog.image.url }}" class="img-responsive" alt=""/>
+            <img src="{{ blog.image.url }}" class="" alt="" width="800" height="400" align="center"/>
             <hr>
             <h3 class="tittle">{{ blog.title }}<i class="glyphicon glyphicon-file"></i></h3>
             <br>
@@ -28,7 +28,7 @@
                 </tr>
                 {% for rs in images %}
                 <tr>
-                    <img src="{{ rs.image.url }}" height="100" width="200" alt="Avatar" style="border-radius:50%"/>
+                    <img src="{{ rs.image.url }}" height="100" width="100" alt="Avatar" style="border-radius:50%"/>
                 </tr>
                 {% endfor %}
             </table>
@@ -37,13 +37,14 @@
         </div>
         <div class="single-bottom">
             <div class="single-middle">
+                <h4> Post </h4>
                 <ul class="social-share">
-                    <li><span>SHARE</span></li>
-                    <li><a href="#"><i> </i></a></li>
-                    <li><a href="#"><i class="tin"> </i></a></li>
-                    <li><a href="#"><i class="message"> </i></a></li>
+                    <li><span>{{ blog.detail | safe }}</span></li>
+<!--                    <li><a href="#"><i> </i></a></li>-->
+<!--                    <li><a href="#"><i class="tin"> </i></a></li>-->
+<!--                    <li><a href="#"><i class="message"> </i></a></li>-->
                 </ul>
-                <a href="#"><i class="arrow"> </i></a>
+<!--                <a href="#"><i class="arrow"> </i></a>-->
                 <div class="clearfix"></div>
             </div>
 
