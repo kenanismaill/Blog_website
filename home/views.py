@@ -1,8 +1,8 @@
 from django.core.checks import messages
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
-from blog.models import Blog, Category
+from blog.models import Blog, Category, Images, Comment
 from home.models import Setting, contactusform
 
 
@@ -23,7 +23,7 @@ def aboutus(request):
     category = Category.objects.all()
     context = {'setting': setting,
                'category': category,
-               'sliderdata': sliderdata,}
+               'sliderdata': sliderdata, }
     return render(request, 'aboutus.html', context)
 
 
@@ -39,7 +39,7 @@ def contactus(request):
     category = Category.objects.all()
     context = {'setting': setting, 'form': form,
                'category': category,
-               'sliderdata': sliderdata,}
+               'sliderdata': sliderdata, }
     return render(request, 'contactus.html', context)
 
 
@@ -49,11 +49,11 @@ def references(request):
     category = Category.objects.all()
     context = {'setting': setting,
                'category': category,
-               'sliderdata': sliderdata,}
+               'sliderdata': sliderdata, }
     return render(request, 'referances.html', context)
 
 
-def category_blogs(request,id,slug):
+def category_blogs(request, id, slug):
     category = Category.objects.all()[:3]
     categorydata = Category.objects.get(pk=id)
     sliderdata = Blog.objects.all()
@@ -63,3 +63,16 @@ def category_blogs(request,id,slug):
                'sliderdata': sliderdata,
                'categorydata': categorydata}
     return render(request, 'blogs.html', context)
+
+
+def blog_detail(request, id, slug):
+    category = Category.objects.all()
+    blog = Blog.objects.get(pk=id)
+    images = Images.objects.filter(Blog_id=id)
+    comments = Comment.objects.filter(blog_id=id, status='true')
+    context = {'blog': blog,
+               'category': category,
+               'images': images,
+               'comments': comments,
+               }
+    return render(request, 'blog_detail.html', context)
