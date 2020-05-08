@@ -12,10 +12,11 @@
         </ul>
         <div class="search-box">
             <div class="b-search">
-                <form>
+                <form method="post" action="/search/">
+                    {% csrf_token %}
                     <input type="text" value="Search" onfocus="this.value = '';"
-                           onblur="if (this.value == '') {this.value = 'Search';}">
-                    <input type="submit" value="">
+                           onblur="if (this.value == '') {this.value = 'Search';}" name="query">
+                    <input type="submit" value=" ">
                 </form>
             </div>
         </div>

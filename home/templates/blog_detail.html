@@ -12,7 +12,7 @@
 <div class="col-md-9 main">
     <!--banner-section-->
     <div class="banner-section">
-        <h3 class="top"><a href="/category/{{blog.category_id}}/{{blog.category.slug}}"> CATEGORY-{{ blog.category }}</a></h3>
+        <h3 class="top"><a href="/category/{{blog.category_id}}/{{blog.category.slug}}"> CATEGORY_{{ blog.category }}</a></h3>
         <HR>
 
         <div class="single">
@@ -22,17 +22,17 @@
             <br>
             <table>
                 <tr>
-                    <td> {% for rs in images %}
-                        <div class="col"><img src="{{ rs.image.url }}" height="100" width="200"/></div>
-                        {% endfor %}
-                    </td>
+                    <th>
+                        Other Images
+                    </th>
                 </tr>
+                {% for rs in images %}
+                <tr>
+                    <img src="{{ rs.image.url }}" height="100" width="200" alt="Avatar" style="border-radius:50%"/>
+                </tr>
+                {% endfor %}
             </table>
             <div class="b-bottom">
-                <p class="sub">{{ blog.detail | safe }}</p>
-                <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a
-                        class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a></p>
-
             </div>
         </div>
         <div class="single-bottom">
@@ -50,34 +50,35 @@
         </div>
         <div class="response">
             <h4>Responses</h4>
-             {% for rs in comments %}
-              <div class="media response-info">
-						<div class="media-left response-text-left">
-							<a href="#">
-								<img class="media-object" src="images/sin1.jpg" alt=""/>
-							</a>
-							<h5><a href="#">{{rs.user.username}}</a></h5>
-						</div>
-						<div class="media-body response-text-right">
-							<p>{{ rs.comment }}</p>
-							<ul>
-								<li><li>{{ rs.created_on}}</li>
-								<li><a href="single.html">Reply</a></li>
-							</ul>
-						</div>
-						<div class="clearfix"> </div>
-					</div>
-              {% endfor %}
+            {% for rs in comments %}
+            <div class="media response-info">
+                <div class="media-left response-text-left">
+                    <a href="#">
+                        <img class="media-object" src="images/sin1.jpg" alt=""/>
+                    </a>
+                    <h5><a href="#">{{rs.user.username}}</a></h5>
+                </div>
+                <div class="media-body response-text-right">
+                    <p>{{ rs.comment }}</p>
+                    <ul>
+                        <li>
+                        <li>{{ rs.created_on}}</li>
+                        <li><a href="single.html">Reply</a></li>
+                    </ul>
+                </div>
+                <div class="clearfix"></div>
+            </div>
+            {% endfor %}
 
 
-				</div>
-				<div class="coment-form">
+        </div>
+        <div class="coment-form">
             <h4>Leave your comment</h4>
             <form method="post" action="/blog/addcomment/{{blog.id}}/{{blog.slug}}/">
                 {% csrf_token %}
-                <input type="text"  name="subject" id="id_subject">
-                <input type="email"  name="email" id="id_email">
-                <input type="text"  name="website" id="id_website">
+                <input type="text" name="subject" id="id_subject">
+                <input type="email" name="email" id="id_email">
+                <input type="text" name="website" id="id_website">
                 <textarea name="comment" id="id_comment">Your Comment...</textarea>
 
                 {% if user.id is not None %}

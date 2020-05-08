@@ -3,6 +3,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from blog.models import Blog, Category, Images, Comment
+from home.form import SearchForm
 from home.models import Setting, contactusform
 
 
@@ -45,7 +46,7 @@ def contactus(request):
 
 def references(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Blog.objects.all()[:3]
+    sliderdata = Blog.objects.all()
     category = Category.objects.all()
     context = {'setting': setting,
                'category': category,
@@ -54,9 +55,9 @@ def references(request):
 
 
 def category_blogs(request, id, slug):
-    category = Category.objects.all()[:3]
+    category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
-    sliderdata = Blog.objects.all()
+    sliderdata = Blog.objects.all()[:3]
     blogs = Blog.objects.filter(category_id=id)
     context = {'blogs': blogs,
                'category': category,
@@ -76,3 +77,22 @@ def blog_detail(request, id, slug):
                'comments': comments,
                }
     return render(request, 'blog_detail.html', context)
+
+
+def blog_search(request):
+    if request.method == 'POST':
+        form = SearchForm(request.POST)
+        # print(form.errors)
+        if form.is_valid():
+            category = Category.objects.all()
+            sliderdata = Blog.objects.all()[:3]
+            query = form.cleaned_data['query']
+            blogs = Blog.objects.filter(title__icontains=query)
+            context = {'blogs': blogs,
+                       'category': category,
+                       'sliderdata': sliderdata,
+                       }
+
+            return render(request, 'blogs_search.html',context)
+
+    return HttpResponseRedirect('/')

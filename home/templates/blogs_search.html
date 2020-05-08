@@ -1,0 +1,43 @@
+{% extends 'homebase.html' %}
+
+{% block title%} Search Results {% endblock%}
+{% block keywords%} {{categor.keywords}}  {% endblock%}
+{% block description%} {{category.description} {% endblock%}
+{% block head%}
+<link rel='shortcut icon' type='image/x-icon' href='{{ setting.icon.url}}'/> {%endblock%}
+{% block header%} {% include 'header.html'%}{% endblock%}
+{% block sidebar%} {% include 'sidebar.html'%}{% endblock%}
+{% block slider%} {% include 'slider.html'%}{% endblock%}
+{% block content%}
+<div class="clearfix"></div>
+<div class="b-bottom">
+
+</div>
+</div>
+<div class="top-news">
+    <div class="top-inner">
+        <h1 align="center"> Search Results </h1>
+        <hr>
+        <table cellpadding="1" width="1200">
+            <tr>
+                <th>Image</th>
+                <th>Blog Name</th>
+                <th>Category</th>
+
+            </tr>
+			{% for rs in blogs %}
+			<tr>
+				<td><a href="/blog/{{rs.id}}/{{rs.slug}}"> <img src="{{ rs.image.url}}" width="150" height="100 " alt="Avatar" style="border-radius:50%"></a></td>
+				<td><h6><a href="/blog/{{rs.id}}/{{rs.slug}}">{{ rs.title }}</a></h6></td>
+				<td><a href="/category/{{ rs.category.id}}/{{rs.category.slug}}">{{ rs.category }}</a></td>
+			</tr>
+			{% endfor %}
+        </table>
+    </div>
+</div>
+
+</div>
+
+{% endblock%}
+{% block banner%} {% include 'banner.html'%}{% endblock%}
+{% block footer%} {% include 'footer.html'%}{% endblock%}
