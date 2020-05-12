@@ -22,6 +22,7 @@ class CategoryAdmin2(DraggableMPTTAdmin):
     list_display = ('tree_actions', 'indented_title',
                     'related_blogs_count', 'related_blogs_cumulative_count')
     list_display_links = ('indented_title',)
+    prepopulated_fields = {'slug':('title',)}
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -61,7 +62,7 @@ class BlogAdmin(admin.ModelAdmin):
     readonly_fields = ('image_tag',)
     list_filter = ['status', 'category']
     inlines = [BlogImageInline]
-
+    prepopulated_fields = {'slug': ('title',)}
 
 class ImagesAdmin(admin.ModelAdmin):
     list_display = ['title', 'Blog', 'image_tag']

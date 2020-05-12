@@ -3,6 +3,7 @@ from django.db import models
 
 # Create your models here.
 from django.forms import ModelForm
+from django.urls import reverse
 from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.fields import TreeForeignKey
@@ -20,7 +21,7 @@ class Category(MPTTModel):
     description = models.CharField(max_length=50)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
-    slug = models.SlugField()
+    slug = models.SlugField(null=False, unique=True)
     parent = TreeForeignKey('self', on_delete=models.CASCADE, null=True, blank=True, related_name='children')
     content = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -43,6 +44,8 @@ class Category(MPTTModel):
 
     image_tag.short_description = 'Image'
 
+    def get_absolute_url(self):
+        return reverse('category_detail', kwargs={'slug':self.slug})
 
 class Blog(models.Model):
     STATUS = (
@@ -56,7 +59,7 @@ class Blog(models.Model):
     description = models.CharField(max_length=50)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
-    slug = models.SlugField()
+    slug = models.SlugField(unique=True,null=False)
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     detail = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -71,6 +74,8 @@ class Blog(models.Model):
 
     image_tag.short_description = 'Image'
 
+    def get_absolute_url(self):
+        return reverse('blog_detail', kwargs={'slug':self.slug})
 
 class Images(models.Model):
     Blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
