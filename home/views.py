@@ -1,3 +1,5 @@
+import json
+
 from django.core.checks import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
@@ -96,3 +98,18 @@ def blog_search(request):
             return render(request, 'blogs_search.html',context)
 
     return HttpResponseRedirect('/')
+
+def blog_search_auto (request):
+    if request.is_ajax():
+        q = request.GET.get('term', '')
+        blog = Blog.objects.filter(title__icontains=q)
+        results = []
+        for rs in blog:
+            blog_json = {}
+            blog_json = rs.title
+            results.append(blog_json)
+        data = json.dumps(results)
+    else:
+        data = 'fail'
+    mimetype = 'application/json'
+    return HttpResponse(data, mimetype)
