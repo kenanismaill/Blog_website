@@ -1,8 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="23e92dd7-68ef-4290-9c5e-26b2c693cd12" name="Default Changelist" comment="create auto slug for blog and category">
+    <list default="true" id="23e92dd7-68ef-4290-9c5e-26b2c693cd12" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/home/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/header.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/header.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/templates/sidebar.html" beforeDir="false" afterPath="$PROJECT_DIR$/home/templates/sidebar.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/home/views.py" beforeDir="false" afterPath="$PROJECT_DIR$/home/views.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/mysite/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/mysite/urls.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -12,8 +18,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="HTML File" />
         <option value="Python Script" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -171,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1589323929230</updated>
     </task>
-    <option name="localTasksCounter" value="18" />
+    <task id="LOCAL-00018" summary="create auto slug for blog and category">
+      <created>1589324186560</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1589324186560</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="VcsManagerConfiguration">
@@ -207,10 +220,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="526" y="215" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1536.824@0.0.1536.824" timestamp="1586533696610" />
-    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2" timestamp="1589324016644">
+    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2" timestamp="1589324185630">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589324016644" />
+    <state x="424" y="186" width="824" height="624" key="CommitChangelistDialog2/0.0.1536.824@0.0.1536.824" timestamp="1589324185630" />
     <state x="147" y="65" key="DiffContextDialog" timestamp="1585806752228">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
@@ -227,10 +240,10 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state x="277" y="55" key="SettingsEditor/0.0.1536.824@0.0.1536.824" timestamp="1585719042856" />
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589322374163">
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2" timestamp="1589324199854">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
-    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589322374163" />
+    <state x="361" y="145" key="Vcs.Push.Dialog.v2/0.0.1536.824@0.0.1536.824" timestamp="1589324199854" />
     <state x="465" y="236" key="com.intellij.ide.util.TipDialog" timestamp="1589291672307">
       <screen x="0" y="0" width="1536" height="824" />
     </state>

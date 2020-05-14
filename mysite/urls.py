@@ -37,7 +37,9 @@ urlpatterns = [
     path('category/<int:id>/<slug:slug>/', views.category_blogs, name='category_blogs'),
     path('blog/<int:id>/<slug:slug>/', views.blog_detail, name='blog_detail'),
     path('search/', views.blog_search,name= 'blog_search'),
-    path('search_auto/',views.blog_search_auto,name='blog_search_auto')
+    path('search_auto/',views.blog_search_auto,name='blog_search_auto'),
+    path('logout/',views.logout_views,name='logout_views'),
+    path('login/',views.login_views,name='login_views'),
 
 ]
 if settings.DEBUG:

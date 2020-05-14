@@ -1,6 +1,7 @@
 import json
 
-from django.core.checks import messages
+from django.contrib.auth import logout, authenticate, login
+from django.contrib import messages
 from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
@@ -34,7 +35,7 @@ def contactus(request):
     form = contactusform(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        messages.Info(request, 'Form submission successful')
+        messages.warning(request, 'Form submission successful')
         return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
@@ -48,7 +49,7 @@ def contactus(request):
 
 def references(request):
     setting = Setting.objects.get(pk=1)
-    sliderdata = Blog.objects.all()
+    sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
     context = {'setting': setting,
                'category': category,
@@ -95,11 +96,12 @@ def blog_search(request):
                        'sliderdata': sliderdata,
                        }
 
-            return render(request, 'blogs_search.html',context)
+            return render(request, 'blogs_search.html', context)
 
     return HttpResponseRedirect('/')
 
-def blog_search_auto (request):
+
+def blog_search_auto(request):
     if request.is_ajax():
         q = request.GET.get('term', '')
         blog = Blog.objects.filter(title__icontains=q)
@@ -113,3 +115,27 @@ def blog_search_auto (request):
         data = 'fail'
     mimetype = 'application/json'
     return HttpResponse(data, mimetype)
+
+
+def logout_views(request):
+    logout(request)
+    return HttpResponseRedirect('/')
+
+
+def login_views(request):
+    if request.method == 'POST':
+        username = request.POST['username']
+        password = request.POST['password']
+
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return HttpResponseRedirect('/')
+        else:
+            messages.warning(request, "check your username or password")
+            return HttpResponseRedirect('/login')
+
+    category = Category.objects.all()
+    context = {'category': category,
+               }
+    return render(request, 'login.html', context)
