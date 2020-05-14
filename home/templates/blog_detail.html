@@ -75,12 +75,18 @@
         </div>
         <div class="coment-form">
             <h4>Leave your comment</h4>
+            {% if messages %}
+					{% for msg in messages %}
+						<div class="alert alert-{{ msg.tags }}" role="alert"> {{ msg }}</div>
+
+					{% endfor %}
+				{% endif %}
             <form method="post" action="/blog/addcomment/{{blog.id}}/{{blog.slug}}/">
                 {% csrf_token %}
-                <input type="text" name="subject" id="id_subject">
-                <input type="email" name="email" id="id_email">
-                <input type="text" name="website" id="id_website">
-                <textarea name="comment" id="id_comment">Your Comment...</textarea>
+                <input type="text" name="subject" id="id_subject" placeholder="subject">
+                <input type="email" name="email" id="id_email" placeholder="email">
+                <input type="text" name="website" id="id_website" placeholder="website">
+                <textarea name="comment" id="id_comment" placeholder="comment here..."></textarea>
 
                 {% if user.id is not None %}
                 <input type="submit" value="Submit Comment">
@@ -89,6 +95,7 @@
                 You need Login for comment
                 {% endif %}
             </form>
+
         </div>
         <div class="clearfix"></div>
     </div>

@@ -1,5 +1,5 @@
 from django.contrib.auth.decorators import login_required
-from django.core.checks import messages
+from django.contrib import messages
 from django.http import HttpResponse, HttpResponseRedirect
 from django.shortcuts import render
 
@@ -27,7 +27,7 @@ def addcomment(request, id,slug):
             data.comment = form.cleaned_data['comment']
             data.ip = request.META.get('REMOTE_ADDR')
             data.save()
-            messages.Info(request, "your mesaj has successfly sent")
+            messages.success(request, "your mesaj has successfly sent")
             return HttpResponseRedirect(url)
-    messages.Warning(request, "did not send , please check fields")
+    messages.warning(request, "did not send , please check fields")
     return HttpResponseRedirect(url)

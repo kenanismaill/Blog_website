@@ -35,7 +35,7 @@ def contactus(request):
     form = contactusform(request.POST or None, request.FILES or None)
     if form.is_valid():
         form.save()
-        messages.warning(request, 'Form submission successful')
+        messages.success(request, "your comment has sent successfly ")
         return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
