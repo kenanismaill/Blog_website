@@ -40,6 +40,7 @@ urlpatterns = [
     path('search_auto/',views.blog_search_auto,name='blog_search_auto'),
     path('logout/',views.logout_views,name='logout_views'),
     path('login/',views.login_views,name='login_views'),
+    path('register/', views.register_views, name='register_views'),
 
 ]
 if settings.DEBUG:

@@ -6,7 +6,7 @@ from django.http import HttpResponseRedirect, HttpResponse
 from django.shortcuts import render
 
 from blog.models import Blog, Category, Images, Comment
-from home.form import SearchForm
+from home.form import SearchForm, RegisterForm
 from home.models import Setting, contactusform
 
 
@@ -139,3 +139,24 @@ def login_views(request):
     context = {'category': category,
                }
     return render(request, 'login.html', context)
+
+
+def register_views(request):
+    if request.method =='POST':
+        form = RegisterForm(request.POST)
+        if form.is_valid():
+            form.save()
+            username = request.POST['username']
+            password = request.POST['password1']
+
+            user = authenticate(request, username=username, password=password)
+            login(request, user)
+            return HttpResponseRedirect('/')
+
+
+    form = RegisterForm()
+    category = Category.objects.all()
+    context = {'category': category,
+               'form': form,
+                   }
+    return render(request, 'register.html', context)
