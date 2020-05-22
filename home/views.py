@@ -14,10 +14,13 @@ def index(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
+    lastBlogs = Blog.objects.all()[:3]
+
 
     context = {'setting': setting, 'page': 'home',
                'sliderdata': sliderdata,
-               'category': category}
+               'category': category,
+               'lastBlogs': lastBlogs}
     return render(request, 'index.html', context)
 
 
@@ -25,9 +28,11 @@ def aboutus(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
+    lastBlogs = Blog.objects.all()[:3]
     context = {'setting': setting,
                'category': category,
-               'sliderdata': sliderdata, }
+               'sliderdata': sliderdata,
+               'lastBlogs': lastBlogs}
     return render(request, 'aboutus.html', context)
 
 
@@ -39,11 +44,13 @@ def contactus(request):
         return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
+    lastBlogs = Blog.objects.all()[:3]
     form = contactusform()
     category = Category.objects.all()
     context = {'setting': setting, 'form': form,
                'category': category,
-               'sliderdata': sliderdata, }
+               'sliderdata': sliderdata,
+               'lastBlogs': lastBlogs}
     return render(request, 'contactus.html', context)
 
 
@@ -51,9 +58,11 @@ def references(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
+    lastBlogs = Blog.objects.all()[:3]
     context = {'setting': setting,
                'category': category,
-               'sliderdata': sliderdata, }
+               'sliderdata': sliderdata,
+               'lastBlogs': lastBlogs}
     return render(request, 'referances.html', context)
 
 
@@ -61,23 +70,27 @@ def category_blogs(request, id, slug):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     sliderdata = Blog.objects.all()[:3]
+    lastBlogs = Blog.objects.all()[:3]
     blogs = Blog.objects.filter(category_id=id)
     context = {'blogs': blogs,
                'category': category,
                'sliderdata': sliderdata,
-               'categorydata': categorydata}
+               'categorydata': categorydata,
+               'lastBlogs': lastBlogs}
     return render(request, 'blogs.html', context)
 
 
 def blog_detail(request, id, slug):
     category = Category.objects.all()
     blog = Blog.objects.get(pk=id)
+    lastBlogs = Blog.objects.all()[:3]
     images = Images.objects.filter(Blog_id=id)
     comments = Comment.objects.filter(blog_id=id, status='true')
     context = {'blog': blog,
                'category': category,
                'images': images,
                'comments': comments,
+               'lastBlogs': lastBlogs,
                }
     return render(request, 'blog_detail.html', context)
 
@@ -89,6 +102,7 @@ def blog_search(request):
         if form.is_valid():
             category = Category.objects.all()
             sliderdata = Blog.objects.all()[:3]
+            # lastBlogs = Blog.objects.all()[:3]
             query = form.cleaned_data['query']
             blogs = Blog.objects.filter(title__icontains=query)
             context = {'blogs': blogs,
