@@ -22,7 +22,7 @@ class CategoryAdmin2(DraggableMPTTAdmin):
     list_display = ('tree_actions', 'indented_title',
                     'related_blogs_count', 'related_blogs_cumulative_count')
     list_display_links = ('indented_title',)
-    prepopulated_fields = {'slug':('title',)}
+    prepopulated_fields = {'slug': ('title',)}
 
     def get_queryset(self, request):
         qs = super().get_queryset(request)
@@ -56,9 +56,11 @@ class CategoryAdmin2(DraggableMPTTAdmin):
 
 admin.site.register(Category, CategoryAdmin2)
 
+
 class BlogLikeAdmin(admin.ModelAdmin):
     list_display = ['blog', 'user', 'created_on']
     list_filter = ['created_on']
+
 
 admin.site.register(BlogLike, BlogLikeAdmin)
 
@@ -67,8 +69,10 @@ class BlogAdmin(admin.ModelAdmin):
     list_display = ['title', 'category', 'status', 'image_tag']
     readonly_fields = ('image_tag',)
     list_filter = ['status', 'category']
+    list_editable = ['status']
     inlines = [BlogImageInline]
     prepopulated_fields = {'slug': ('title',)}
+
 
 class ImagesAdmin(admin.ModelAdmin):
     list_display = ['title', 'Blog', 'image_tag']

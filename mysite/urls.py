@@ -47,6 +47,8 @@ urlpatterns = [
     path('useraddblog/', views.useraddblog, name='useraddblog'),
     path('userblogs/', views.userblogs, name='userblogs'),
     path('usercomments/', views.usercomments, name='usercomments'),
+    path('userbloglikes/', views.userlikes, name='userbloglikes'),
+    path('deleteusercomment/<int:id>', views.deleteusercomment, name='deleteusercomment'),
     path('question/', views.question, name='question'),
 
 ]

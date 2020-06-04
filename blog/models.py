@@ -70,7 +70,7 @@ class Blog(models.Model):
     keywords = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     image = models.ImageField(blank=True, upload_to='images/')
-    status = models.CharField(max_length=10, choices=STATUS)
+    status = models.CharField(max_length=10, choices=STATUS, default='false')
     slug = models.SlugField(unique=True, null=False)
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     detail = RichTextUploadingField()

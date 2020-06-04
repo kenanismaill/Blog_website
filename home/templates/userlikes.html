@@ -4,28 +4,26 @@
 
 	<div class="row">
      <div class="col-xl-8 col-lg-8">
-      <h3>My Blogs</h3>
+      <h3>My Blog Likes</h3>
 		<hr>
 			<div class="bs-docs-example">
 				<table class="table table-bordered">
 					<thead>
 						<tr>
 							<th>Blog Tilte</th>
-							<th>Subject</th>
-							<th>Comment</th>
+							<th>Image</th>
 							<th>Create On</th>
-                            <th>Delete</th>
+                            <th>View</th>
 
 						</tr>
 					</thead>
 					<tbody>
-                    {% for rs in mycomments %}
+                    {% for rs in blogLikes %}
 						<tr>
 							<td >{{ rs.blog.title }}</td>
-							<td>{{ rs.subject}}</td>
-							<td>{{ rs.comment|safe}}</td>
+							<td ><img src="{{ rs.blog.image.url}}" height="75" alt=""></td>
 							<td>{{ rs.created_on}}</td>
-                            <td> <p class="center"><a href="{% url 'deleteusercomment' id=rs.id %}" class="btn-danger">Delete</a></p></td>
+                            <td> <p class="center"><a href="{% url 'blog_detail' id=rs.blog.id slug=rs.blog.slug %}" class="btn btn-success">View</a></p></td>
 
 
 						</tr>

@@ -16,7 +16,7 @@ def index(request):
     sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
     lastBlogs = Blog.objects.all()[:2]
-    blog = Blog.objects.all()[:10]
+    blog = Blog.objects.filter(status='true')[:10]
     context = {'setting': setting, 'page': 'home',
                'sliderdata': sliderdata,
                'category': category,
@@ -45,7 +45,7 @@ def contactus(request):
         return HttpResponseRedirect('/contactus')
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
-    lastBlogs = Blog.objects.all()[:3]
+    lastBlogs = Blog.objects.all()[:1]
     form = contactusform()
     category = Category.objects.all()
     context = {'setting': setting, 'form': form,
@@ -59,7 +59,7 @@ def references(request):
     setting = Setting.objects.get(pk=1)
     sliderdata = Blog.objects.all()[:3]
     category = Category.objects.all()
-    lastBlogs = Blog.objects.all()[:2]
+    lastBlogs = Blog.objects.all()[:1]
     context = {'setting': setting,
                'category': category,
                'sliderdata': sliderdata,
@@ -71,7 +71,7 @@ def category_blogs(request, id, slug):
     category = Category.objects.all()
     categorydata = Category.objects.get(pk=id)
     sliderdata = Blog.objects.all()[:3]
-    lastBlogs = Blog.objects.all()[:2]
+    lastBlogs = Blog.objects.all()[:1]
     blogs = Blog.objects.filter(category_id=id)
     context = {'blogs': blogs,
                'category': category,
@@ -106,7 +106,6 @@ def blog_detail(request, id, slug):
 
 
 def blog_like_unlike(request, id, slug):
-
     blog = Blog.objects.get(pk=id)
     profile = userProfile.objects.get(user=request.user)
     blogLike = BlogLike.objects.filter(blog=blog, user=profile)
@@ -217,19 +216,15 @@ def useraddblog(request):
         description = request.POST.get('description')
         keywords = request.POST.get('keywords')
         detail = request.POST.get('detail')
-        status = request.POST.get('status')
+        slug = request.POST.get('slug')
         categoryId = request.POST.get('category')
         image = request.FILES.get('image')
         category2 = Category.objects.get(pk=categoryId)
-        if status == 0:
-            status = "hayir"
-        else:
-            status = "evet"
         auther = request.POST.get('auther')
         user = User.objects.get(username=request.user)
 
         b = Blog(category=category2, user=user, author=auther, title=title, keywords=keywords, description=description,
-                 image=image, status=status, slug=title + "-slug", parent=None, detail=detail)
+                 image=image, slug=slug, parent=None, detail=detail)
         b.save()
         return redirect('/home/')
     return render(request, 'user_add_blog.html', context)
@@ -258,5 +253,22 @@ def usercomments(request):
     return render(request, 'usercomments.html', context)
 
 
+def userlikes(request):
+    category = Category.objects.all()
+    user = userProfile.objects.get(user=request.user)
+    blogLikes = BlogLike.objects.filter(user=user)
+    context = {'category': category,
+
+               'blogLikes': blogLikes,
+               }
+    return render(request, 'userlikes.html', context)
+
+
 def question(request):
     return HttpResponse("question page ")
+
+
+def deleteusercomment(request, id):
+    delete = Comment.objects.get(pk=id)
+    delete.delete()
+    return redirect('/usercomments')

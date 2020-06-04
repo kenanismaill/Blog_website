@@ -75,7 +75,7 @@
             {% if user.id is not None %}
             <li><a href="/logout/" data-hover="logout">Logout</a></li>
 
-            <li><a href="login.html" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
+            <li><a href="/login" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
 
             {% else %}
             <li><a href="/login" data-hover="Login">Login</a></li>

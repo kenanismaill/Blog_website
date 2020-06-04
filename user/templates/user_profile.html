@@ -99,7 +99,7 @@
 <div class="full">
     <div class="col-md-3 top-nav login">
         <div class="logo">
-            <a href="index.html"><h1>Blogger</h1></a>
+            <a href="/"><h1>Blogger</h1></a>
         </div>
         <div class="top-menu">
             <span class="menu"> </span>
@@ -127,11 +127,15 @@
                         </div>
                     </div>
                 </li>
+                {% if user.id is not None %}
                 <li><a href="/aboutus" data-hover="About">About</a></li>
                 <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
                 <li><a href="/referance">Referances</a></li>
-                <li><a href="registration.html" data-hover="Registration">Registration</a></li>
-                <li><a href="login.html" data-hover="Login">Login</a></li>
+
+                {% else %}
+                <li><a href="/register" data-hover="Registration">Registration</a></li>
+                <li><a href="/login" data-hover="Login">Login</a></li>
+                {% endif %}
             </ul>
             <!-- script-for-nav -->
             <script>
@@ -166,6 +170,8 @@
                                href="/useraddblog" role="tab" aria-controls="profile">Create Your Blog</a>
                             <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
                                href="/userblogs" role="tab" aria-controls="messages">My Blogs</a>
+                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                               href="/userbloglikes" role="tab" aria-controls="messages">My Blog Likes</a>
                             <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
                                href="/usercomments" role="tab" aria-controls="settings">My Comments</a>
                             <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"

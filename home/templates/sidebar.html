@@ -1,12 +1,12 @@
 <div class="full">
     <div class="col-md-3 top-nav">
         <div class="logo">
-            <a href="/ "><h1>Blogger</h1></a>
+            <a href="/"><h1>Blogger</h1></a>
         </div>
         <div class="top-menu">
             <span class="menu"> </span>
 
-            <ul class="cl-effect-16">
+            <ul class="cl-effect-20">
                 <li>
                     <div class="dropdown">
                         <a href="/" class="dropbtn">Category </a>
@@ -29,12 +29,16 @@
                         </div>
                     </div>
                 </li>
+                {% if user.id is not None %}
+                <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
                 <li><a href="/aboutus" data-hover="About">About</a></li>
                 <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
                 <li><a href="/referance">Referances</a></li>
+                {% else %}
                 <li><a href="/register" data-hover="Registration">Registration</a></li>
 
                 <li><a href="/login" data-hover="Login">Login</a></li>
+                {% endif %}
             </ul>
 
             <!-- script-for-nav -->

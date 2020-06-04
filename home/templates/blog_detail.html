@@ -83,8 +83,9 @@
 <!--                <a href="#"><i class="arrow"> </i></a>-->
                 <div class="clearfix"></div>
                 <br><br>
-
+                {% if request.user.is_authenticated %}
                 <a href="{% url 'blog_like_unlike' id=blog.id slug=blog.slug %}" class="btn btn-success float-right">{% if didLiked %} Unliked {% else %} Like {% endif %}</a>
+                {% endif %}
             </div>
 
         </div>
