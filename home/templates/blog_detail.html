@@ -14,11 +14,45 @@
     <div class="banner-section">
         <h3 class="top"><a href="/category/{{blog.category_id}}/{{blog.category.slug}}" style="text-decoration: underline"> CATEGORY_{{ blog.category }}</a></h3>
         <HR>
+<!--            <div class="banner">-->
+<!--                 <div  class="callbacks_container">-->
+<!--					<ul class="rslides" id="slider4">-->
+<!--						{% for img in blog.images %}-->
+<!--							<li>-->
+<!--								  <img src="{{ img.image.url}}"  width="800px"  height="200" />-->
+<!--								</li>-->
 
+<!--						{% endfor %}-->
+<!--						</ul>-->
+<!--					</div>-->
+<!--					&lt;!&ndash;banner&ndash;&gt;-->
+
+<!--			 <script>-->
+<!--			    // You can also use "$(window).load(function() {"-->
+<!--			    $(function () {-->
+<!--			      // Slideshow 4-->
+<!--			      $("#slider4").responsiveSlides({-->
+<!--			        auto: true,-->
+<!--			        pager:true,-->
+<!--			        nav:true,-->
+<!--			        speed: 500,-->
+<!--			        namespace: "callbacks",-->
+<!--			        before: function () {-->
+<!--			          $('.events').append("<li>before event fired.</li>");-->
+<!--			        },-->
+<!--			        after: function () {-->
+<!--			          $('.events').append("<li>after event fired.</li>");-->
+<!--			        }-->
+<!--			      });-->
+
+<!--			    });-->
+<!--			  </script>-->
+<!--            </div>-->
         <div class="single">
             <img src="{{ blog.image.url }}" class="" alt="" width="800" height="400" align="center"/>
             <hr>
             <h3 class="tittle">{{ blog.title }}<i class="glyphicon glyphicon-file"></i></h3>
+
             <br>
             <table>
                 <tr>
@@ -35,6 +69,7 @@
             <div class="b-bottom">
             </div>
         </div>
+
         <div class="single-bottom">
             <div class="single-middle">
                 <h4> Post </h4>
@@ -44,8 +79,12 @@
 <!--                    <li><a href="#"><i class="tin"> </i></a></li>-->
 <!--                    <li><a href="#"><i class="message"> </i></a></li>-->
                 </ul>
+
 <!--                <a href="#"><i class="arrow"> </i></a>-->
                 <div class="clearfix"></div>
+                <br><br>
+
+                <a href="{% url 'blog_like_unlike' id=blog.id slug=blog.slug %}" class="btn btn-success float-right">{% if didLiked %} Unliked {% else %} Like {% endif %}</a>
             </div>
 
         </div>
@@ -58,6 +97,7 @@
                         <img class="media-object" src="images/sin1.jpg" alt=""/>
                     </a>
                     <h5><a href="#">{{rs.user.username}}</a></h5>
+                    <a href="#"> <img src="{{ profile.image.url}} " height="50" width="50"></a>
                 </div>
                 <div class="media-body response-text-right">
                     <p>{{ rs.comment }}</p>

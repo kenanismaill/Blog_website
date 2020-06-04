@@ -6,4 +6,5 @@ urlpatterns = [
     # ex: /home/
     path('', views.index, name='index'),
 
+
     ]

@@ -1,43 +1,26 @@
 {% load static%}
 <div class="clearfix"> </div>
-			    <div class="b-bottom">
-			      <h5 class="top"><a href="single.html">What turn out consetetur sadipscing elit</a></h5>
-			      <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
-				</div>
+<!--			    <div class="b-bottom">-->
+<!--			      <h5 class="top"><a href="single.html">What turn out consetetur sadipscing elitbvndvdsmvn</a></h5>-->
+<!--			      <p>On Aug 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>-->
+<!--				</div>-->
 			 </div>
 			   <!--//banner-->
 			  <!--/top-news-->
 			  <div class="top-news">
 				<div class="top-inner">
-					<div class="col-md-6 top-text">
-						 <a href="single.html"><img src="{% static 'images/pic1.jpg'%}"  class="img-responsive" alt=""></a>
-						    <h5 class="top"><a href="single.html">Consetetur sadipscing elitccccccc</a></h5>
-							<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam eratsed diam justo duo dolores rebum.</p>
-						    <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
+					{% for rs in blog %}
+						<div class="col-md-6 top-text">
+						 <a href="/blog/{{rs.id}}/{{rs.slug}}"><img src="{{ rs.image.url}}"  class="img-responsive" alt=""></a>
+						    <h5 class="top"><a href="single.html">{{rs.title}}</a></h5>
+							<p>{{rs.description }} sadscc.</p>
+						    <p>{{rs.created_on}} <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
 					 </div>
-					<div class="col-md-6 top-text two">
-						 <a href="single.html"><img src="{% static 'images/pic2.jpg'%}"  class="img-responsive" alt=""></a>
-						    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-							<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam eratsed diam justo duo dolores rebum.</p>
-						    <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
-					 </div>
+					{% endfor %}
+
 					 <div class="clearfix"> </div>
 				 </div>
-				 <div class="top-inner second">
-					<div class="col-md-6 top-text">
-						 <a href="single.html"><img src="{% static 'images/pic3.jpg'%}"  class="img-responsive" alt=""></a>
-						    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-							<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam eratsed diam justo duo dolores rebum.</p>
-						    <p>On Jun 25 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
-					 </div>
-					<div class="col-md-6 top-text two">
-						 <a href="single.html"><img src="{% static 'images/pic4.jpg'%}"  class="img-responsive" alt=""></a>
-						    <h5 class="top"><a href="single.html">Consetetur sadipscing elit</a></h5>
-							<p>Consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt labore dolore magna aliquyam eratsed diam justo duo dolores rebum.</p>
-						    <p>On Jun 27 <a class="span_link" href="#"><span class="glyphicon glyphicon-comment"></span>0 </a><a class="span_link" href="#"><span class="glyphicon glyphicon-eye-open"></span>56 </a><a class="span_link" href="single.html"><span class="glyphicon glyphicon-circle-arrow-right"></span></a></p>
-					 </div>
-					 <div class="clearfix"> </div>
-				 </div>
+
 	            </div>
 					<!--//top-news-->
 		     </div>

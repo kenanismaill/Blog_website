@@ -1,22 +1,4 @@
-<script>
 
-  $(function() {
-    $("#query").autocomplete({
-      source: "/search_auto/",
-      select: function (event, ui) { //item selected
-        AutoCompleteSelectHandler(event, ui)
-      },
-      minLength: 2,
-    });
-  });
-
-  function AutoCompleteSelectHandler(event, ui)
-  {
-    var selectedObj = ui.item;
-  }
-
-
-</script>
 
 <div class="h-top" id="home">
     <div class="top-header">
@@ -25,25 +7,56 @@
             <li><a href="/aboutus" data-hover="About">About</a></li>
             <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
             <li><a href="/referance">Referances</a></li>
-            <li><a href="services.html" data-hover="SERVICES">SERVICES</a></li>
+
 
             {% if user.id is not None %}
             <li><a href="/logout/" data-hover="logout">Logout</a></li>
 
-            <li><a href="login.html" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
+            <li><a href="/userpage" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }} </a></li>
 
             {% else %}
-             <li><a href="/login/" data-hover="Login">Login</a></li>
+            <li><a href="/login/" data-hover="Login">Login</a></li>
             <li><a href="/register/" data-hover="Registration">Registration</a></li>
             {% endif %}
         </ul>
 
-        <div class="search-box">
+        <div class="search-box" style="z-index: 9999;">
             <div class="b-search">
                 <form method="post" action="/search/">
                     {% csrf_token %}
-                    <input name="query" id=" query" type="text" value="Search" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Search';}">
+                    <input name="query" id="query" type="text" value="Search" onfocus="this.value = '';"
+                           onblur="if (this.value == '') {this.value = 'Search';}">
                     <input type="submit" value=" ">
+                    <div id="search_result" style="
+                    position: absolute;
+                    top: 45px;
+                    right: 0px;
+                    background-color: white;
+                    width: 237px;
+                    z-index: 9999999999;
+                        ">
+                    </div>
+                    <script>
+                                $("#query").on("change paste keyup", function () {
+                                    const search_result = $('#search_result');
+                                    const q = $('#query').val();
+                                    if(q.length == 0)
+                                    {
+                                        search_result.empty();
+                                        return;
+                                    }
+                                    $.get(`/search_auto/?query=${q}`, function (data) {
+                                        data = JSON.parse(data.toString());
+                                        search_result.empty();
+                                        for (var key in data) {
+                                            search_result.append(
+                                                `<a href="/blog/${key}/${data[key][0]}/" style="display: block; padding: 10px 5px; background: rgb(200, 200, 200); color: white; z-index: 99999999000000;">${data[key][1]}</a>`
+                                            )
+                                        }
+                                    });
+                                });
+
+                    </script>
                 </form>
             </div>
         </div>

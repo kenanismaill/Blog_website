@@ -67,7 +67,7 @@
             <li><a href="/aboutus" data-hover="About">About</a></li>
             <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
             <li><a href="/referance">Referances</a></li>
-            <li><a href="services.html" data-hover="SERVICES">SERVICES</a></li>
+
 
             {% if user.id is not None %}
             <li><a href="/logout/" data-hover="logout">Logout</a></li>
@@ -75,7 +75,7 @@
             <li><a href="login.html" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
 
             {% else %}
-             <li><a href="/login/" data-hover="Login">Login</a></li>
+             <li><a href="/userpage" data-hover="Login">Login</a></li>
             <li><a href="/register/" data-hover="Registration">Registration</a></li>
             {% endif %}
         </ul>
@@ -126,9 +126,9 @@
                 <li><a href="/aboutus" data-hover="About">About</a></li>
                 <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
                 <li><a href="/referance">Referances</a></li>
-                <li><a href="registration.html" data-hover="Registration">Registration</a></li>
-                <li><a href="services.html" data-hover="SERVICES">SERVICES</a></li>
-                <li><a href="login.html" data-hover="Login">Login</a></li>
+                <li><a href="/register" data-hover="Registration">Registration</a></li>
+
+                <li><a href="/login" data-hover="Login">Login</a></li>
             </ul>
 					<!-- script-for-nav -->
 					<script>
@@ -172,7 +172,7 @@
 							 <input type="submit" value="Login">
 
 					 </form>
-					<a href="#">Forgot Password ?</a>
+					<a href="/user/changepassword">Forgot Password ?</a>
 			</div>
 			<div class="col-md-6 login-right">
 					 <h3 class="tittle">New Registration <i class="glyphicon glyphicon-file"></i></h3>

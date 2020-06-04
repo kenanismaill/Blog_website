@@ -1,0 +1,44 @@
+{% extends 'user_profile.html'%}
+{% block user_page %}
+<style>
+table, th, td {
+  border: 1px solid black;
+}
+</style>
+
+
+<table class="table table-borderd">
+  <tr>
+    <th style="text-align:center">Username</th>
+    <td>{{ profile.user.username }} </td>
+  </tr>
+ <tr>
+    <th style="text-align:center">Image</th>
+    <td><img src="{{ profile.image.url }}" height="100" width="100"> </td>
+  </tr>
+      <tr>
+    <th style="text-align:center"> Phone</th>
+    <td>{{ profile.phone }} </td>
+  </tr>
+ <tr>
+    <th style="text-align:center">Adress</th>
+    <td>{{profile.adress}} </td>
+  </tr>
+       <tr>
+    <th style="text-align:center"> Country</th>
+    <td>{{ profile.country }} </td>
+  </tr>
+ <tr>
+    <th style="text-align:center">City</th>
+    <td>{{profile.city}} </td>
+  </tr>
+</table>
+   <div class="w3-container">
+  <div class="w3-show-inline-block">
+  <div class="w3-bar">
+      <a href="/user/changepassword"> Change password</a>
+      <a href="/user/updateprofile"> Update profile </a>
+
+  </div>
+  </div></div>
+{% endblock%}

@@ -1,0 +1,40 @@
+{% extends 'user_profile.html'%}
+{% block user_page %}
+<div class="container">
+
+	<div class="row">
+     <div class="col-xl-8 col-lg-8">
+      <h3>My Blogs</h3>
+		<hr>
+			<div class="bs-docs-example">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Blog Tilte</th>
+							<th>Subject</th>
+							<th>Comment</th>
+							<th>Create On</th>
+                            <th>Delete</th>
+
+						</tr>
+					</thead>
+					<tbody>
+                    {% for rs in mycomments %}
+						<tr>
+							<td >{{ rs.blog.title }}</td>
+							<td>{{ rs.subject}}</td>
+							<td>{{ rs.comment|safe}}</td>
+							<td>{{ rs.created_on}}</td>
+                            <td> <p class="center"><a href="#" class="btn-danger">Delete</a></p></td>
+
+
+						</tr>
+                    {% endfor %}
+
+					</tbody>
+				</table>
+			</div>
+     </div>
+    </div>
+    </div>
+{% endblock%}

@@ -1,0 +1,78 @@
+{% extends 'user_profile.html'%}
+{% block user_page %}
+<div class="container">
+
+
+     <div class="row">
+        <div class="col-xl-4 col-lg-6">
+            <form action="{% url 'updateprofile' %}" ENCTYPE="multipart/form-data" method="POST" id="">
+                {% csrf_token %}
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">User Name</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="username" id=" " class="form-control" value="{{ user }}">
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label  class=" form-control-label">phone</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="phone" id="desc" class="form-control" value="{{user.phone}}">
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label  class=" form-control-label">Adress</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="adress" class="form-control" value="{{user.adress}}">
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Country</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="country" class="form-control" value="{{user.country}}">
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label  class=" form-control-label">City</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="text" name="city"  class="form-control" value="{{user.city}}">
+                        <small class="form-text text-muted"></small>
+                    </div>
+                </div>
+                <div class="row form-group">
+                    <div class="col col-md-3">
+                        <label class=" form-control-label">Images</label>
+                    </div>
+                    <div class="col-12 col-md-9">
+                        <input type="file" name="image" class="form-control">
+                        <small class="form-text text-muted">Select New Images </small>
+                    </div>
+                </div>
+
+
+                <div>
+                    <input type="submit" class="btn btn-info floatright" value="Update">
+                </div>
+                <div style="clear: right;"></div>
+                <br>
+            </form>
+        </div>
+    </div>
+
+</div>
+{% endblock %}

@@ -6,7 +6,7 @@
 
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title> {% block title %}Register {% endblock %} </title>
+    <title> {% block title %} User Page  {% endblock %} </title>
     <meta name="keywords" content=" {% block keywords %} Anasayfasianahtar kelimeler {%endblock%}"/>
     <meta name="description" content=" {% block description %} Anasayfa aciklama  {%endblock%}"/>
 
@@ -75,10 +75,10 @@
             {% if user.id is not None %}
             <li><a href="/logout/" data-hover="logout">Logout</a></li>
 
-            <li><a href="login.html" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
+            <li><a href="/userpage" data-hover=" User:{{user.first_name }}"> User:{{user.first_name }}</a></li>
 
             {% else %}
-            <li><a href="/login" data-hover="Login">Login</a></li>
+            <li><a href="/login/" data-hover="Login">Login</a></li>
             <li><a href="/register/" data-hover="Registration">Registration</a></li>
             {% endif %}
         </ul>
@@ -86,7 +86,7 @@
         <div class="search-box">
             <div class="b-search">
                 <form method="post" action="/search/">
-                   {% csrf_token %}
+                    {% csrf_token %}
                     <input name="query" id=" query" type="text" value="Search" onfocus="this.value = '';"
                            onblur="if (this.value == '') {this.value = 'Search';}">
                     <input type="submit" value=" ">
@@ -130,9 +130,8 @@
                 <li><a href="/aboutus" data-hover="About">About</a></li>
                 <li><a href="/contactus" data-hover="CONTACT">Contact</a></li>
                 <li><a href="/referance">Referances</a></li>
-                <li><a href="register" data-hover="Registration">Registration</a></li>
-
-                <li><a href="/login" data-hover="Login">Login</a></li>
+                <li><a href="registration.html" data-hover="Registration">Registration</a></li>
+                <li><a href="login.html" data-hover="Login">Login</a></li>
             </ul>
             <!-- script-for-nav -->
             <script>
@@ -152,37 +151,36 @@
             </ul>
         </div>
     </div>
-    <div class="col-md-12 main">
-        <!-- register -->
-        <div class="sign-up-form">
-            <h3 class="tittle">Registration <i class="glyphicon glyphicon-file"></i></h3>
-            <p>Having hands on experience in creating innovative designs,I do offer design
-                solutions which harness</p>
-            <div class="sign-up">
-                <h3 class="tittle reg">Personal Information <i class="glyphicon glyphicon-user"></i></h3>
-                <div class="sign-u">
-                    <form method="post">
-                        {% csrf_token %}
-                        {% for field in form %}
-                        <p>
-                            {{ field.label_tag}}<br>
-                            {{field}}
-                            {% if field.help_text %}
-
-                            <small style="color : grey">{{ field.help_text}}</small>
-                            {% endif %}
-                            {% for error in field.errors%}
-                        <p style="color:red ">{{ error}}</p>
-                        {% endfor%}
-                        </p>
-                        {% endfor%}
-                        <button type="submit" >Register</button>
-                    </form>
+    <div class="col-md-9 main">
+        <!-- login-page -->
+        <div class="login">
+            <div class="login-grids">
+                <div class="col-md-4 log">
+                    <div class="col-8">
+                        <div class="list-group" id="list-tab" role="tablist">
+                            <a class="list-group-item list-group-item-action active" id="list-home-list"
+                               data-toggle="list" href="#" role="tab" aria-controls="home">User Page</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                               href="/userpage" role="tab" aria-controls="profile">Profile</a>
+                            <a class="list-group-item list-group-item-action" id="list-profile-list" data-toggle="list"
+                               href="/useraddblog" role="tab" aria-controls="profile">Create Your Blog</a>
+                            <a class="list-group-item list-group-item-action" id="list-messages-list" data-toggle="list"
+                               href="/userblogs" role="tab" aria-controls="messages">My Blogs</a>
+                            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                               href="/usercomments" role="tab" aria-controls="settings">My Comments</a>
+                            <a class="list-group-item list-group-item-action" id="list-settings-list" data-toggle="list"
+                               href="/logout" role="tab" aria-controls="settings">Log Out</a>
+                        </div>
+                    </div>
                 </div>
+                <div class="col-md-8 login-right">
+
+                    {% block user_page %} {% endblock%}
+                </div>
+                <div class="clearfix"></div>
             </div>
         </div>
-
-        <!-- //register -->
+        <!-- //login-page -->
         <div class="clearfix"></div>
         <!--/footer-->
         <div class="footer">

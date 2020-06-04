@@ -3,7 +3,7 @@ from django.contrib import admin
 # Register your models here.
 from mptt.admin import DraggableMPTTAdmin
 
-from blog.models import Category, Blog, Images, Comment
+from blog.models import Category, Blog, Images, Comment, BlogLike
 
 
 class BlogImageInline(admin.TabularInline):
@@ -55,6 +55,12 @@ class CategoryAdmin2(DraggableMPTTAdmin):
 
 
 admin.site.register(Category, CategoryAdmin2)
+
+class BlogLikeAdmin(admin.ModelAdmin):
+    list_display = ['blog', 'user', 'created_on']
+    list_filter = ['created_on']
+
+admin.site.register(BlogLike, BlogLikeAdmin)
 
 
 class BlogAdmin(admin.ModelAdmin):

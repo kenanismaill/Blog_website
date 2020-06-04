@@ -26,6 +26,7 @@ from home import views
 
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))
 urlpatterns = [
+    path('user/', include('user.urls')),
     path('', include('home.urls')),
     path('aboutus', views.aboutus, name='aboutus'),
     path('contactus', views.contactus, name='contactus'),
@@ -36,11 +37,17 @@ urlpatterns = [
     path('ckeditor/', include('ckeditor_uploader.urls')),
     path('category/<int:id>/<slug:slug>/', views.category_blogs, name='category_blogs'),
     path('blog/<int:id>/<slug:slug>/', views.blog_detail, name='blog_detail'),
+    path('blog/<int:id>/<slug:slug>/like', views.blog_like_unlike, name='blog_like_unlike'),
     path('search/', views.blog_search,name= 'blog_search'),
-    path('search_auto/',views.blog_search_auto,name='blog_search_auto'),
+    path('search_auto/', views.blog_search_auto, name='blog_search_auto'),
     path('logout/',views.logout_views,name='logout_views'),
     path('login/',views.login_views,name='login_views'),
     path('register/', views.register_views, name='register_views'),
+    path('userpage/', views.userpage, name='userpage'),
+    path('useraddblog/', views.useraddblog, name='useraddblog'),
+    path('userblogs/', views.userblogs, name='userblogs'),
+    path('usercomments/', views.usercomments, name='usercomments'),
+    path('question/', views.question, name='question'),
 
 ]
 if settings.DEBUG:

@@ -8,6 +8,7 @@ from django.utils.safestring import mark_safe
 from ckeditor_uploader.fields import RichTextUploadingField
 from mptt.fields import TreeForeignKey
 from mptt.models import MPTTModel
+from home.models import userProfile
 
 
 class Category(MPTTModel):
@@ -45,7 +46,17 @@ class Category(MPTTModel):
     image_tag.short_description = 'Image'
 
     def get_absolute_url(self):
-        return reverse('category_detail', kwargs={'slug':self.slug})
+        return reverse('category_detail', kwargs={'slug': self.slug})
+
+
+class BlogLike(models.Model):
+    blog = models.ForeignKey('Blog', null=True, blank=True, on_delete=models.CASCADE)
+    user = models.ForeignKey(userProfile, null=True, blank=True, on_delete=models.CASCADE)
+    created_on = models.DateTimeField(auto_now_add=True)
+
+    def __str__(self):
+        return self.blog.title
+
 
 class Blog(models.Model):
     STATUS = (
@@ -53,13 +64,14 @@ class Blog(models.Model):
         ('false', 'False ')
     )
     category = models.ForeignKey(Category, on_delete=models.CASCADE)
+    user = models.ForeignKey(User, on_delete=models.CASCADE)
     author = models.CharField(max_length=50)
     title = models.CharField(max_length=50)
     keywords = models.CharField(max_length=50)
     description = models.CharField(max_length=50)
     image = models.ImageField(blank=True, upload_to='images/')
     status = models.CharField(max_length=10, choices=STATUS)
-    slug = models.SlugField(unique=True,null=False)
+    slug = models.SlugField(unique=True, null=False)
     parent = models.ForeignKey('self', blank=True, null=True, related_name='children', on_delete=models.CASCADE)
     detail = RichTextUploadingField()
     created_on = models.DateTimeField(auto_now_add=True)
@@ -75,7 +87,16 @@ class Blog(models.Model):
     image_tag.short_description = 'Image'
 
     def get_absolute_url(self):
-        return reverse('blog_detail', kwargs={'slug':self.slug})
+        return reverse('blog_detail', kwargs={'slug': self.slug})
+
+    @property
+    def get_likes(self):
+        return BlogLike.objects.filter(blog=self)
+
+    @property
+    def images(self):
+        return Images.objects.filter(Blog=self)
+
 
 class Images(models.Model):
     Blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
@@ -102,11 +123,11 @@ class Comment(models.Model):
     blog = models.ForeignKey(Blog, on_delete=models.CASCADE)
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     subject = models.CharField(max_length=50)
-    email = models.CharField(max_length=50,blank=True)
-    website = models.CharField(max_length=50,blank=True)
-    comment = models.TextField(max_length=200,blank=True)
+    email = models.CharField(max_length=50, blank=True)
+    website = models.CharField(max_length=50, blank=True)
+    comment = models.TextField(max_length=200, blank=True)
     status = models.CharField(max_length=10, choices=STATUS, default='New')
-    ip = models.CharField(blank=True,max_length=20)
+    ip = models.CharField(blank=True, max_length=20)
     created_on = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now_add=True)
 
@@ -117,6 +138,4 @@ class Comment(models.Model):
 class CommentForm(ModelForm):
     class Meta:
         model = Comment
-        fields = ['subject','email','website','comment']
-
-
+        fields = ['subject', 'email', 'website', 'comment']

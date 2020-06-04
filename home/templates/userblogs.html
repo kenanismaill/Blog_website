@@ -1,0 +1,39 @@
+{% extends 'user_profile.html'%}
+{% block user_page %}
+<div class="container">
+
+	<div class="row">
+     <div class="col-xl-8 col-lg-8">
+      <h3>My Blogs</h3>
+		<hr>
+			<div class="bs-docs-example">
+				<table class="table table-bordered">
+					<thead>
+						<tr>
+							<th>Blogs Tilte</th>
+							<th>Description</th>
+							<th>Image</th>
+							<th>Created On</th>
+							<th>Detail</th>
+
+
+						</tr>
+					</thead>
+					<tbody>
+                    {% for rs in myblogs %}
+						<tr>
+							<td >{{ rs.title }}</td>
+							<td>{{ rs.description }}</td>
+							<td><img src="{{ rs.image.url}}" width="100" height="100"></td>
+							<td>{{ rs.created_on}}</td>
+							<td><a href="{% url 'blog_detail' id=rs.id slug=rs.slug %}" class="btn btn-sm btn-info"> Detail</a></td>
+						</tr>
+                    {% endfor %}
+
+					</tbody>
+				</table>
+			</div>
+     </div>
+    </div>
+    </div>
+{% endblock%}
